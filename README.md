@@ -95,6 +95,9 @@ Busca el componente **Optimization Guide On Device Model** y verifica que su est
 La aplicación está organizada en 4 pestañas interactivas diseñadas para cubrir desde la experimentación abierta hasta la telemetría detallada de rendimiento:
 
 ### 1. Chat interactivo con Prompt API
+
+![Captura de la pestaña de chat con Prompt API](assets/chat.png)
+
 * **Conversación en tiempo real:** Permite dialogar libremente con Gemini Nano en local.
 * **Soporte de streaming:** Visualización fluida palabra por palabra (*token by token*) a medida que el modelo genera la respuesta.
 * **Control de hiperparámetros:**
@@ -104,6 +107,9 @@ La aplicación está organizada en 4 pestañas interactivas diseñadas para cubr
 * **Métricas en tiempo real:** Medición automática del tiempo al primer token (*Time to First Token* - TTFT), tiempo total de inferencia, recuento estimado de tokens y tasa de generación en tokens/segundo.
 
 ### 2. Task APIs especializadas
+
+![Captura de la pestaña de Task APIs](assets/tasks-api.png)
+
 Demostración de las APIs de alto nivel orientadas a tareas lingüísticas concretas:
 * **Summarizer API:** Generación de resúmenes locales configurando el formato (viñetas, párrafos, titulares) y la longitud deseada.
 * **Writer & Rewriter API:** Asistente de redacción para transformar borradores, expandir ideas o adaptar el tono (formal, casual, asertivo).
@@ -115,6 +121,9 @@ Demostración de las APIs de alto nivel orientadas a tareas lingüísticas concr
 * **Gestión de fallbacks transparentes:** Si la API nativa de una tarea no está disponible, el sistema utiliza inteligentemente la *Prompt API* de Gemini Nano o el modo simulación, indicando el método exacto con un distintivo visual (*badge*).
 
 ### 3. Banco de pruebas y casos de uso
+
+![Captura de la pestaña de banco de pruebas y casos de uso](assets/presets-becnhmarks.png)
+
 * **Plantillas preconfiguradas (*presets*):**
   * *Extractor de JSON:* Análisis de texto desestructurado para generar estructuras JSON válidas.
   * *Análisis de sentimiento:* Clasificación de opiniones en positivo, neutro o negativo con razonamiento.
@@ -122,6 +131,9 @@ Demostración de las APIs de alto nivel orientadas a tareas lingüísticas concr
 * **Prueba de rendimiento y latencia (*benchmark*):** Ejecución de una batería de inferencia estandarizada que mide la velocidad sostenida en tokens por segundo y la latencia del hardware local.
 
 ### 4. Diagnóstico y hardware del sistema
+
+![Captura de la pestaña de diagnóstico y hardware](assets/diagnóstico.png)
+
 * **Inspección de hardware en tiempo real:**
   * *Acelerador gráfico (GPU):* Fabricante y modelo comercial detectado mediante WebGPU y WebGL.
   * *Capacidad de CPU:* Número de hilos lógicos del procesador (`navigator.hardwareConcurrency`).
