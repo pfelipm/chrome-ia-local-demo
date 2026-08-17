@@ -69,7 +69,7 @@
     <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-800 border border-blue-500/40 text-slate-100 text-xs px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3 pointer-events-none">
         <i id="toastIcon" class="fa-solid fa-circle-check text-green-400 text-base"></i>
         <div>
-            <div id="toastTitle" class="font-bold text-slate-200">URL Copiada</div>
+            <div id="toastTitle" class="font-bold text-slate-200">URL copiada</div>
             <div id="toastMessage" class="text-slate-400 text-[11px]">Pégala en la barra de direcciones de Chrome.</div>
         </div>
     </div>
@@ -96,7 +96,7 @@
             <div class="flex items-center gap-3 w-full md:w-auto justify-end">
                 <a href="https://developer.chrome.com/docs/ai/built-in" target="_blank" rel="noopener noreferrer" title="Documentación oficial de Chrome Built-in AI" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 border border-blue-500/30 transition flex items-center gap-1.5 hidden sm:flex">
                     <i class="fa-solid fa-book-bookmark"></i>
-                    <span>Docs Oficiales</span>
+                    <span>Docs oficiales</span>
                     <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                 </a>
 
@@ -134,10 +134,10 @@
             </div>
             <div class="flex items-center gap-2 shrink-0">
                 <button onclick="forceSimulationMode()" class="px-3 py-1 bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 rounded text-xs transition">
-                    Activar Simulación <i class="fa-solid fa-flask ml-1"></i>
+                    Activar simulación <i class="fa-solid fa-flask ml-1"></i>
                 </button>
                 <button onclick="switchTab('diagnostics')" class="px-3 py-1 bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border border-rose-500/40 rounded text-xs transition">
-                    Ver Explicación
+                    Ver explicación
                 </button>
             </div>
         </div>
@@ -156,7 +156,7 @@
                 </div>
             </div>
             <button onclick="switchTab('diagnostics')" class="px-3 py-1 bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 rounded text-xs transition whitespace-nowrap">
-                Ver Guía de Configuración <i class="fa-solid fa-arrow-right ml-1"></i>
+                Ver guía de configuración <i class="fa-solid fa-arrow-right ml-1"></i>
             </button>
         </div>
     </div>
@@ -166,19 +166,19 @@
         <div class="max-w-7xl mx-auto flex space-x-1 overflow-x-auto py-2 no-scrollbar">
             <button id="tab-prompt" onclick="switchTab('prompt')" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium transition flex items-center gap-2 whitespace-nowrap bg-blue-600/20 text-blue-400 border border-blue-500/30">
                 <i class="fa-solid fa-comments"></i>
-                <span>Prompt API (Chat Local)</span>
+                <span>Prompt API (chat local)</span>
             </button>
             <button id="tab-tasks" onclick="switchTab('tasks')" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium transition flex items-center gap-2 whitespace-nowrap text-slate-400 hover:text-slate-200 hover:bg-slate-800/50">
                 <i class="fa-solid fa-wand-magic-sparkles"></i>
-                <span>Task APIs (Resumen / Redacción / Traducción)</span>
+                <span>Task APIs (resumen / redacción / traducción)</span>
             </button>
             <button id="tab-presets" onclick="switchTab('presets')" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium transition flex items-center gap-2 whitespace-nowrap text-slate-400 hover:text-slate-200 hover:bg-slate-800/50">
                 <i class="fa-solid fa-vial"></i>
-                <span>Presets & Benchmarks</span>
+                <span>Presets y benchmarks</span>
             </button>
             <button id="tab-diagnostics" onclick="switchTab('diagnostics')" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium transition flex items-center gap-2 whitespace-nowrap text-slate-400 hover:text-slate-200 hover:bg-slate-800/50">
                 <i class="fa-solid fa-sliders"></i>
-                <span>Diagnóstico & Hardware</span>
+                <span>Diagnóstico y hardware</span>
             </button>
         </div>
     </div>
@@ -192,11 +192,11 @@
             <div class="w-full lg:w-80 flex flex-col gap-4 shrink-0">
                 <div class="glass-panel p-4 rounded-xl flex flex-col gap-4">
                     <h2 class="text-sm font-bold text-slate-200 uppercase tracking-wider flex items-center gap-2">
-                        <i class="fa-solid fa-sliders text-blue-400"></i> Parámetros de Sesión
+                        <i class="fa-solid fa-sliders text-blue-400"></i> Parámetros de sesión
                     </h2>
 
                     <div>
-                        <label class="block text-xs font-semibold text-slate-400 mb-1">System Prompt (Instrucción inicial)</label>
+                        <label class="block text-xs font-semibold text-slate-400 mb-1">System Prompt (instrucción inicial)</label>
                         <textarea id="systemPrompt" rows="3" class="w-full bg-slate-900/90 border border-slate-700 rounded-lg p-2.5 text-xs text-slate-200 focus:outline-none focus:border-blue-500 transition" placeholder="Ej: Eres un asistente técnico directo y en español..."></textarea>
                     </div>
 
@@ -217,8 +217,11 @@
                     </div>
 
                     <div class="flex items-center justify-between border-t border-slate-800 pt-3">
-                        <span class="text-xs font-semibold text-slate-300">Respuesta Streaming</span>
-                        <label class="relative inline-flex items-center cursor-pointer">
+                        <div class="flex items-center gap-1.5" title="Muestra el texto progresivamente token a token conforme el modelo local lo genera (método promptStreaming()), en lugar de esperar a la respuesta completa.">
+                            <span class="text-xs font-semibold text-slate-300">Respuesta streaming</span>
+                            <i class="fa-solid fa-circle-info text-[11px] text-slate-400 hover:text-blue-400 transition cursor-help"></i>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer" title="Activar/desactivar streaming en tiempo real">
                           <input type="checkbox" id="streamToggle" checked class="sr-only peer">
                           <div class="w-9 h-5 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
                         </label>
@@ -226,13 +229,13 @@
 
                     <div class="flex gap-2 pt-2">
                         <button onclick="resetSession()" class="flex-1 py-2 px-3 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 rounded-lg text-xs font-semibold transition flex items-center justify-center gap-1.5">
-                            <i class="fa-solid fa-trash-can"></i> Reiniciar Sesión
+                            <i class="fa-solid fa-trash-can"></i> Reiniciar sesión
                         </button>
                     </div>
                 </div>
 
                 <div class="glass-panel p-4 rounded-xl flex flex-col gap-3">
-                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Métricas de Inferencia Local</h3>
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Métricas de inferencia local</h3>
                     <div class="grid grid-cols-2 gap-2 text-center">
                         <div class="bg-slate-900/60 border border-slate-800 p-2 rounded-lg">
                             <span class="text-[10px] text-slate-500 block uppercase">Tiempo</span>
@@ -251,10 +254,10 @@
                 <div class="px-4 py-3 border-b border-slate-800/80 bg-slate-900/50 flex items-center justify-between">
                     <div class="flex items-center gap-2">
                         <i class="fa-solid fa-terminal text-blue-400 text-sm"></i>
-                        <span class="text-xs font-semibold text-slate-300">Sesión Activa - Inferencia On-Device</span>
+                        <span class="text-xs font-semibold text-slate-300">Sesión activa - Inferencia on-device</span>
                     </div>
                     <button onclick="clearChat()" class="text-xs text-slate-400 hover:text-slate-200 transition">
-                        <i class="fa-solid fa-eraser mr-1"></i> Limpiar Chat
+                        <i class="fa-solid fa-eraser mr-1"></i> Limpiar chat
                     </button>
                 </div>
 
@@ -300,7 +303,7 @@
 
                     <div class="grid grid-cols-2 gap-2 text-xs">
                         <div>
-                            <label class="block text-slate-400 mb-1">Tipo de Resumen</label>
+                            <label class="block text-slate-400 mb-1">Tipo de resumen</label>
                             <select id="sumType" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-slate-300">
                                 <option value="key-points">Puntos clave (Key Points)</option>
                                 <option value="tldr">TL;DR</option>
@@ -319,12 +322,12 @@
                     </div>
 
                     <div>
-                        <label class="block text-xs font-semibold text-slate-400 mb-1">Texto de Entrada</label>
+                        <label class="block text-xs font-semibold text-slate-400 mb-1">Texto de entrada</label>
                         <textarea id="sumInput" rows="5" class="w-full bg-slate-900/90 border border-slate-700 rounded-lg p-2.5 text-xs text-slate-200 focus:outline-none focus:border-purple-500" placeholder="Pega aquí un artículo o texto largo para resumir..."></textarea>
                     </div>
 
-                    <button onclick="runSummarizer()" class="w-full py-2.5 bg-purple-600 hover:bg-purple-500 text-white font-medium rounded-lg text-xs transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-bolt"></i> Resumir Texto Localmente
+                    <button id="sumBtn" onclick="runSummarizer()" class="w-full py-2.5 bg-purple-600 hover:bg-purple-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium rounded-lg text-xs transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-bolt"></i> Resumir texto localmente
                     </button>
 
                     <div class="bg-slate-950 border border-slate-800 rounded-lg p-3 min-h-[100px] flex flex-col justify-between">
@@ -354,8 +357,8 @@
                         <div>
                             <label class="block text-slate-400 mb-1">Tono deseado</label>
                             <select id="writeTone" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-slate-300">
-                                <option value="formal">Formal & Profesional</option>
-                                <option value="casual">Casual & Amigable</option>
+                                <option value="formal">Formal y profesional</option>
+                                <option value="casual">Casual y amigable</option>
                                 <option value="assertive">Directo / Asertivo</option>
                             </select>
                         </div>
@@ -370,12 +373,12 @@
                     </div>
 
                     <div>
-                        <label class="block text-xs font-semibold text-slate-400 mb-1">Borrador Original</label>
+                        <label class="block text-xs font-semibold text-slate-400 mb-1">Borrador original</label>
                         <textarea id="writeInput" rows="5" class="w-full bg-slate-900/90 border border-slate-700 rounded-lg p-2.5 text-xs text-slate-200 focus:outline-none focus:border-teal-500" placeholder="Escribe un borrador para reescribir o transformar..."></textarea>
                     </div>
 
-                    <button onclick="runWriter()" class="w-full py-2.5 bg-teal-600 hover:bg-teal-500 text-white font-medium rounded-lg text-xs transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-feather-pointed"></i> Transformar Texto
+                    <button id="writeBtn" onclick="runWriter()" class="w-full py-2.5 bg-teal-600 hover:bg-teal-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium rounded-lg text-xs transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-feather-pointed"></i> Transformar texto
                     </button>
 
                     <div class="bg-slate-950 border border-slate-800 rounded-lg p-3 min-h-[100px] flex flex-col justify-between">
@@ -401,20 +404,24 @@
 
                     <p class="text-xs text-slate-400">Traducción de texto local e instantánea en el dispositivo utilizando los modelos lingüísticos integrados.</p>
 
-                    <div class="grid grid-cols-2 gap-2 text-xs">
-                        <div>
+                    <div class="flex items-end gap-2 text-xs">
+                        <div class="flex-1">
                             <label class="block text-slate-400 mb-1">Origen</label>
-                            <select id="transSource" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-slate-300">
-                                <option value="es" selected>Español (es)</option>
+                            <select id="transSource" onchange="handleTransSourceChange()" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-slate-300">
+                                <option value="auto" selected>Detectar automáticamente</option>
+                                <option value="es">Español (es)</option>
                                 <option value="en">Inglés (en)</option>
                                 <option value="fr">Francés (fr)</option>
                                 <option value="de">Alemán (de)</option>
                                 <option value="ja">Japonés (ja)</option>
                             </select>
                         </div>
-                        <div>
+                        <button type="button" onclick="swapTranslationLanguages()" title="Intercambiar idiomas" class="p-2 mb-0.5 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 rounded-lg transition shrink-0">
+                            <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                        </button>
+                        <div class="flex-1">
                             <label class="block text-slate-400 mb-1">Destino</label>
-                            <select id="transTarget" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-slate-300">
+                            <select id="transTarget" onchange="handleTransTargetChange()" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-slate-300">
                                 <option value="en" selected>Inglés (en)</option>
                                 <option value="es">Español (es)</option>
                                 <option value="fr">Francés (fr)</option>
@@ -425,12 +432,12 @@
                     </div>
 
                     <div>
-                        <label class="block text-xs font-semibold text-slate-400 mb-1">Texto a Traducir</label>
+                        <label class="block text-xs font-semibold text-slate-400 mb-1">Texto a traducir</label>
                         <textarea id="transInput" rows="5" class="w-full bg-slate-900/90 border border-slate-700 rounded-lg p-2.5 text-xs text-slate-200 focus:outline-none focus:border-amber-500" placeholder="Escribe el texto que deseas traducir localmente..."></textarea>
                     </div>
 
-                    <button onclick="runTranslator()" class="w-full py-2.5 bg-amber-600 hover:bg-amber-500 text-white font-medium rounded-lg text-xs transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-globe"></i> Traducir Texto Localmente
+                    <button id="transBtn" onclick="runTranslator()" class="w-full py-2.5 bg-amber-600 hover:bg-amber-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium rounded-lg text-xs transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-globe"></i> Traducir texto localmente
                     </button>
 
                     <div class="bg-slate-950 border border-slate-800 rounded-lg p-3 min-h-[100px] flex flex-col justify-between">
@@ -449,13 +456,15 @@
 
         <!-- ================= TAB 3: PRESETS & BENCHMARKS ================= -->
         <div id="view-presets" class="tab-view hidden flex-col gap-6">
-            <div class="glass-panel p-5 rounded-xl flex flex-col gap-4">
+            <div class="glass-panel p-5 rounded-xl flex flex-col gap-5">
                 <div>
-                    <h2 class="font-bold text-slate-200 text-base">Banco de Pruebas y Casos de Uso</h2>
-                    <p class="text-xs text-slate-400 mt-1">Prueba capacidades comunes de los LLMs pequeños ejecutados localmente.</p>
+                    <h2 class="font-bold text-slate-200 text-base">Banco de pruebas y casos de uso</h2>
+                    <p class="text-xs text-slate-400 mt-1">
+                        Esta sección permite evaluar la versatilidad y la velocidad de ejecución de los modelos locales en tu dispositivo. Puedes probar plantillas preparadas para casos habituales de procesamiento lingüístico o medir el rendimiento bruto en tiempo real de tu hardware (GPU, NPU o CPU).
+                    </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div class="bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 p-4 rounded-xl transition flex flex-col justify-between">
                         <div>
                             <div class="flex items-center gap-2 text-blue-400 text-sm font-bold mb-2">
@@ -464,55 +473,55 @@
                             <p class="text-xs text-slate-400">Analiza un texto no estructurado y extrae entidades clave en formato JSON estrictamente válido.</p>
                         </div>
                         <button onclick="loadPreset('json')" class="mt-4 w-full py-2 bg-blue-600/20 hover:bg-blue-600/30 text-blue-400 border border-blue-500/30 rounded-lg text-xs font-semibold transition">
-                            Cargar en Chat <i class="fa-solid fa-arrow-right ml-1"></i>
+                            Cargar en chat <i class="fa-solid fa-arrow-right ml-1"></i>
                         </button>
                     </div>
 
                     <div class="bg-slate-900/80 border border-slate-800 hover:border-purple-500/50 p-4 rounded-xl transition flex flex-col justify-between">
                         <div>
                             <div class="flex items-center gap-2 text-purple-400 text-sm font-bold mb-2">
-                                <i class="fa-solid fa-face-smile"></i> Análisis de Sentimiento
+                                <i class="fa-solid fa-face-smile"></i> Análisis de sentimiento
                             </div>
-                            <p class="text-xs text-slate-400">Clasifica un comentario de usuario como Positivo, Neutro o Negativo con su justificación.</p>
+                            <p class="text-xs text-slate-400">Clasifica un comentario de usuario como positivo, neutro o negativo con su justificación.</p>
                         </div>
                         <button onclick="loadPreset('sentiment')" class="mt-4 w-full py-2 bg-purple-600/20 hover:bg-purple-600/30 text-purple-400 border border-purple-500/30 rounded-lg text-xs font-semibold transition">
-                            Cargar en Chat <i class="fa-solid fa-arrow-right ml-1"></i>
+                            Cargar en chat <i class="fa-solid fa-arrow-right ml-1"></i>
                         </button>
                     </div>
 
                     <div class="bg-slate-900/80 border border-slate-800 hover:border-teal-500/50 p-4 rounded-xl transition flex flex-col justify-between">
                         <div>
                             <div class="flex items-center gap-2 text-teal-400 text-sm font-bold mb-2">
-                                <i class="fa-solid fa-bug"></i> Corrector de Código JS
+                                <i class="fa-solid fa-bug"></i> Corrector de código JS
                             </div>
                             <p class="text-xs text-slate-400">Detecta errores de sintaxis y lógica en un fragmento de código JavaScript corto.</p>
                         </div>
                         <button onclick="loadPreset('code')" class="mt-4 w-full py-2 bg-teal-600/20 hover:bg-teal-600/30 text-teal-400 border border-teal-500/30 rounded-lg text-xs font-semibold transition">
-                            Cargar en Chat <i class="fa-solid fa-arrow-right ml-1"></i>
+                            Cargar en chat <i class="fa-solid fa-arrow-right ml-1"></i>
                         </button>
                     </div>
                 </div>
 
-                <div class="border-t border-slate-800 pt-5 mt-2">
-                    <h3 class="text-sm font-bold text-slate-200 mb-2">Test de Rendimiento de Latencia On-Device</h3>
-                    <p class="text-xs text-slate-400 mb-4">Mide el tiempo de respuesta inicial (Time To First Token) y la velocidad promedio en tokens por segundo.</p>
+                <div class="border-t border-slate-800 pt-5">
+                    <h3 class="text-sm font-bold text-slate-200 mb-1">Prueba de rendimiento y latencia local</h3>
+                    <p class="text-xs text-slate-400 mb-4">Ejecuta un prompt estandarizado para evaluar la velocidad de respuesta inicial (tiempo al primer token) y la tasa de generación de tokens por segundo sostenida.</p>
                     
-                    <button id="benchBtn" onclick="runBenchmark()" class="px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white text-xs font-bold rounded-lg shadow-lg transition flex items-center gap-2">
-                        <i class="fa-solid fa-stopwatch"></i> Ejecutar Benchmark de Latencia
+                    <button id="benchBtn" onclick="runBenchmark()" class="px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 disabled:opacity-50 disabled:cursor-not-allowed text-white text-xs font-bold rounded-lg shadow-lg transition flex items-center gap-2">
+                        <i class="fa-solid fa-stopwatch"></i> Ejecutar prueba de latencia
                     </button>
 
                     <div id="benchResults" class="mt-4 hidden p-4 bg-slate-950 border border-slate-800 rounded-xl">
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
                             <div>
-                                <span class="text-[10px] text-slate-500 uppercase font-bold">Tiempo Primer Token</span>
+                                <span class="text-[10px] text-slate-500 uppercase font-bold">Tiempo primer token</span>
                                 <div id="benchTTFT" class="text-base font-mono font-bold text-indigo-400">-- ms</div>
                             </div>
                             <div>
-                                <span class="text-[10px] text-slate-500 uppercase font-bold">Tiempo Total Inferencia</span>
+                                <span class="text-[10px] text-slate-500 uppercase font-bold">Tiempo total inferencia</span>
                                 <div id="benchTotal" class="text-base font-mono font-bold text-slate-200">-- ms</div>
                             </div>
                             <div>
-                                <span class="text-[10px] text-slate-500 uppercase font-bold">Tokens/Seg Est.</span>
+                                <span class="text-[10px] text-slate-500 uppercase font-bold">Tokens/Seg est.</span>
                                 <div id="benchTPS" class="text-base font-mono font-bold text-green-400">-- t/s</div>
                             </div>
                         </div>
@@ -532,7 +541,7 @@
                             <i class="fa-solid fa-book-bookmark text-base"></i>
                         </div>
                         <div>
-                            <h3 class="text-xs font-bold text-indigo-300 uppercase tracking-wider">Documentación Oficial de Chrome Built-in AI</h3>
+                            <h3 class="text-xs font-bold text-indigo-300 uppercase tracking-wider">Documentación oficial de Chrome Built-in AI</h3>
                             <p class="text-xs text-slate-400 mt-0.5">Consulta la especificación oficial, guías de APIs e itinerario de funciones de IA integrada de Google Chrome.</p>
                         </div>
                     </div>
@@ -542,7 +551,7 @@
                             <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                         </a>
                         <a href="https://developer.chrome.com/docs/ai/built-in-apis" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial px-3 py-1.5 bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 border border-blue-500/40 rounded-lg text-xs font-semibold transition flex items-center justify-center gap-1.5">
-                            <span>APIs Reference</span>
+                            <span>Referencia de APIs</span>
                             <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                         </a>
                     </div>
@@ -552,39 +561,39 @@
             <!-- Chrome Internal URLs Panel -->
             <div class="glass-panel p-4 rounded-xl border border-blue-500/20 bg-gradient-to-r from-blue-900/20 to-slate-900">
                 <h3 class="text-xs font-bold text-blue-300 uppercase tracking-wider mb-2 flex items-center gap-2">
-                    <i class="fa-solid fa-compass"></i> Acceso Rápido a URLs de Configuración de Chrome (chrome://)
+                    <i class="fa-solid fa-compass"></i> Acceso rápido a URL de configuración de Chrome (chrome://)
                 </h3>
                 <p class="text-xs text-slate-400 mb-3">
                     Debido a políticas de seguridad del navegador, las páginas web no pueden abrir enlaces <code>chrome://</code> directamente. Haz clic en cualquiera de los botones para copiar la URL al portapapeles y pegarla en una nueva pestaña.
                 </p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2">
-                    <button onclick="copyChromeUrl('chrome://flags/#prompt-api-for-gemini-nano')" class="p-2.5 bg-slate-900 hover:bg-slate-800 border border-slate-700/80 rounded-lg text-left transition group">
+                    <button onclick="copyChromeUrl('chrome://flags/#prompt-api-for-gemini-nano', this)" class="p-2.5 bg-slate-900 hover:bg-slate-800 border border-slate-700/80 rounded-lg text-left transition group">
                         <div class="flex items-center justify-between text-blue-400 text-xs font-semibold">
-                            <span>Prompt API Flag</span>
+                            <span>Flag de Prompt API</span>
                             <i class="fa-regular fa-copy group-hover:scale-110 transition"></i>
                         </div>
                         <div class="text-[10px] text-slate-500 font-mono truncate mt-0.5">chrome://flags/#prompt-api-for-gemini-nano</div>
                     </button>
 
-                    <button onclick="copyChromeUrl('chrome://settings/system')" class="p-2.5 bg-slate-900 hover:bg-slate-800 border border-slate-700/80 rounded-lg text-left transition group">
+                    <button onclick="copyChromeUrl('chrome://settings/system', this)" class="p-2.5 bg-slate-900 hover:bg-slate-800 border border-slate-700/80 rounded-lg text-left transition group">
                         <div class="flex items-center justify-between text-purple-400 text-xs font-semibold">
-                            <span>Ajustes IA (Chrome 148+)</span>
+                            <span>Ajustes de IA (Chrome 148+)</span>
                             <i class="fa-regular fa-copy group-hover:scale-110 transition"></i>
                         </div>
                         <div class="text-[10px] text-slate-500 font-mono truncate mt-0.5">chrome://settings/system</div>
                     </button>
 
-                    <button onclick="copyChromeUrl('chrome://components')" class="p-2.5 bg-slate-900 hover:bg-slate-800 border border-slate-700/80 rounded-lg text-left transition group">
+                    <button onclick="copyChromeUrl('chrome://components', this)" class="p-2.5 bg-slate-900 hover:bg-slate-800 border border-slate-700/80 rounded-lg text-left transition group">
                         <div class="flex items-center justify-between text-teal-400 text-xs font-semibold">
-                            <span>Chrome Components</span>
+                            <span>Componentes de Chrome</span>
                             <i class="fa-regular fa-copy group-hover:scale-110 transition"></i>
                         </div>
                         <div class="text-[10px] text-slate-500 font-mono truncate mt-0.5">chrome://components</div>
                     </button>
 
-                    <button onclick="copyChromeUrl('chrome://on-device-internals')" class="p-2.5 bg-slate-900 hover:bg-slate-800 border border-slate-700/80 rounded-lg text-left transition group">
+                    <button onclick="copyChromeUrl('chrome://on-device-internals', this)" class="p-2.5 bg-slate-900 hover:bg-slate-800 border border-slate-700/80 rounded-lg text-left transition group">
                         <div class="flex items-center justify-between text-amber-400 text-xs font-semibold">
-                            <span>On-Device Internals</span>
+                            <span>Diagnóstico on-device</span>
                             <i class="fa-regular fa-copy group-hover:scale-110 transition"></i>
                         </div>
                         <div class="text-[10px] text-slate-500 font-mono truncate mt-0.5">chrome://on-device-internals</div>
@@ -602,53 +611,94 @@
                 </p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs mt-3">
                     <div class="bg-slate-900/90 p-3 rounded-lg border border-slate-800">
-                        <strong class="text-blue-400 font-semibold block mb-1">Opción A: Ejecutar en Pestaña Independiente</strong>
+                        <strong class="text-blue-400 font-semibold block mb-1">Opción A: Ejecutar en pestaña independiente</strong>
                         <p class="text-slate-400 text-[11px]">Guarda este código HTML como archivo e ingrésalo directamente como documento principal (<code>file:///...</code>). Al ser la ventana superior, Gemini Nano funcionará sin restricción.</p>
                     </div>
                     <div class="bg-slate-900/90 p-3 rounded-lg border border-slate-800">
-                        <strong class="text-amber-400 font-semibold block mb-1">Opción B: Usar Modo Simulación</strong>
+                        <strong class="text-amber-400 font-semibold block mb-1">Opción B: Usar modo simulación</strong>
                         <p class="text-slate-400 text-[11px]">Activa el botón de simulación en el menú superior para validar todas las respuestas, prompts, benchmarks y streaming directamente en esta vista previa encajada.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 
                 <div class="glass-panel p-5 rounded-xl flex flex-col gap-4">
                     <h2 class="font-bold text-slate-200 text-sm flex items-center gap-2 border-b border-slate-800 pb-3">
-                        <i class="fa-solid fa-laptop-code text-blue-400"></i> Estado del Entorno de Ejecución
+                        <i class="fa-solid fa-laptop-code text-blue-400"></i> Estado del entorno de ejecución
                     </h2>
 
-                    <ul class="space-y-3 text-xs">
-                        <li class="flex justify-between items-center bg-slate-900/80 p-2.5 rounded-lg border border-slate-800">
-                            <span class="text-slate-400">Contexto (iFrame / Top window):</span>
+                    <ul class="space-y-2 text-xs">
+                        <li class="flex justify-between items-center bg-slate-900/80 p-2 rounded-lg border border-slate-800">
+                            <span class="text-slate-400">Contexto de ejecución:</span>
                             <span id="diagFrameContext" class="font-mono text-slate-200">Comprobando...</span>
                         </li>
-                        <li class="flex justify-between items-center bg-slate-900/80 p-2.5 rounded-lg border border-slate-800">
-                            <span class="text-slate-400">Objeto window.ai / LanguageModel:</span>
-                            <span id="diagLanguageModel" class="font-mono text-slate-200">Detectando...</span>
-                        </li>
-                        <li class="flex justify-between items-center bg-slate-900/80 p-2.5 rounded-lg border border-slate-800">
-                            <span class="text-slate-400">Aceleración GPU WebGL/WebGPU:</span>
+                        <li class="flex justify-between items-center bg-slate-900/80 p-2 rounded-lg border border-slate-800">
+                            <span class="text-slate-400">Aceleración gráfica:</span>
                             <span id="diagGPU" class="font-mono text-slate-200">Comprobando...</span>
                         </li>
-                        <li class="flex justify-between items-center bg-slate-900/80 p-2.5 rounded-lg border border-slate-800">
+                        <li class="flex justify-between items-center bg-slate-900/80 p-2 rounded-lg border border-slate-800">
+                            <span class="text-slate-400">Prompt API (LanguageModel):</span>
+                            <span id="diagLanguageModel" class="font-mono text-slate-200">Detectando...</span>
+                        </li>
+                        <li class="flex justify-between items-center bg-slate-900/80 p-2 rounded-lg border border-slate-800">
+                            <span class="text-slate-400">Summarizer API:</span>
+                            <span id="diagSummarizer" class="font-mono text-slate-200">Detectando...</span>
+                        </li>
+                        <li class="flex justify-between items-center bg-slate-900/80 p-2 rounded-lg border border-slate-800">
+                            <span class="text-slate-400">Writer & Rewriter API:</span>
+                            <span id="diagWriter" class="font-mono text-slate-200">Detectando...</span>
+                        </li>
+                        <li class="flex justify-between items-center bg-slate-900/80 p-2 rounded-lg border border-slate-800">
+                            <span class="text-slate-400">Translator API:</span>
+                            <span id="diagTranslator" class="font-mono text-slate-200">Detectando...</span>
+                        </li>
+                        <li class="flex justify-between items-center bg-slate-900/80 p-2 rounded-lg border border-slate-800">
                             <span class="text-slate-400">Navegador detectado:</span>
-                            <span id="diagUA" class="font-mono text-slate-300">--</span>
+                            <span id="diagUA" class="font-mono text-slate-300 text-[11px] truncate max-w-[160px]">--</span>
                         </li>
                     </ul>
                 </div>
 
                 <div class="glass-panel p-5 rounded-xl flex flex-col gap-4">
                     <h2 class="font-bold text-slate-200 text-sm flex items-center gap-2 border-b border-slate-800 pb-3">
-                        <i class="fa-solid fa-list-check text-indigo-400"></i> Pasos para Activar Gemini Nano en Chrome (v148+)
+                        <i class="fa-solid fa-microchip text-teal-400"></i> Especificaciones de hardware del sistema
+                    </h2>
+
+                    <ul class="space-y-2 text-xs">
+                        <li class="flex justify-between items-center bg-slate-900/80 p-2 rounded-lg border border-slate-800">
+                            <span class="text-slate-400">Acelerador GPU:</span>
+                            <span id="diagGpuModel" class="font-mono text-slate-200 text-right truncate max-w-[160px]" title="Detectando...">Detectando...</span>
+                        </li>
+                        <li class="flex justify-between items-center bg-slate-900/80 p-2 rounded-lg border border-slate-800">
+                            <span class="text-slate-400">Fabricante de GPU:</span>
+                            <span id="diagGpuVendor" class="font-mono text-slate-200 text-right truncate max-w-[160px]">Detectando...</span>
+                        </li>
+                        <li class="flex justify-between items-center bg-slate-900/80 p-2 rounded-lg border border-slate-800">
+                            <span class="text-slate-400">Hilos lógicos de CPU:</span>
+                            <span id="diagCpuCores" class="font-mono text-slate-200">Detectando...</span>
+                        </li>
+                        <li class="flex justify-between items-center bg-slate-900/80 p-2 rounded-lg border border-slate-800">
+                            <span class="text-slate-400">Memoria RAM estimada:</span>
+                            <span id="diagRam" class="font-mono text-slate-200">Detectando...</span>
+                        </li>
+                        <li class="flex justify-between items-center bg-slate-900/80 p-2 rounded-lg border border-slate-800">
+                            <span class="text-slate-400">Memoria JS en uso:</span>
+                            <span id="diagJsHeap" class="font-mono text-slate-200">Detectando...</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-panel p-5 rounded-xl flex flex-col gap-4">
+                    <h2 class="font-bold text-slate-200 text-sm flex items-center gap-2 border-b border-slate-800 pb-3">
+                        <i class="fa-solid fa-list-check text-indigo-400"></i> Pasos para activar Gemini Nano en Chrome (v148+)
                     </h2>
 
                     <ol class="space-y-3 text-xs text-slate-300 list-none leading-relaxed">
                         <li class="bg-slate-900/50 p-2.5 rounded-lg border border-slate-800">
                             <div class="flex items-center justify-between gap-2 mb-1">
-                                <strong>1. Activar Prompt API Flag:</strong>
-                                <button onclick="copyChromeUrl('chrome://flags/#prompt-api-for-gemini-nano')" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-blue-400 border border-slate-700 rounded text-[10px] font-medium transition flex items-center gap-1">
+                                <strong>1. Activar flag de Prompt API:</strong>
+                                <button onclick="copyChromeUrl('chrome://flags/#prompt-api-for-gemini-nano', this)" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-blue-400 border border-slate-700 rounded text-[10px] font-medium transition flex items-center gap-1">
                                     <i class="fa-regular fa-copy"></i> Copiar URL
                                 </button>
                             </div>
@@ -664,8 +714,8 @@
                         </li>
                         <li class="bg-slate-900/50 p-2.5 rounded-lg border border-slate-800">
                             <div class="flex items-center justify-between gap-2 mb-1">
-                                <strong>2. Ajustes de Sistema / IA en el Dispositivo:</strong>
-                                <button onclick="copyChromeUrl('chrome://settings/system')" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-purple-400 border border-slate-700 rounded text-[10px] font-medium transition flex items-center gap-1">
+                                <strong>2. Ajustes de sistema / IA en el dispositivo:</strong>
+                                <button onclick="copyChromeUrl('chrome://settings/system', this)" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-purple-400 border border-slate-700 rounded text-[10px] font-medium transition flex items-center gap-1">
                                     <i class="fa-regular fa-copy"></i> Copiar URL
                                 </button>
                             </div>
@@ -678,7 +728,7 @@
                         <li class="bg-slate-900/50 p-2.5 rounded-lg border border-slate-800">
                             <div class="flex items-center justify-between gap-2 mb-1">
                                 <strong>4. Iniciar y monitorear la descarga (~2.5 GB):</strong>
-                                <button onclick="copyChromeUrl('chrome://components')" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-teal-400 border border-slate-700 rounded text-[10px] font-medium transition flex items-center gap-1">
+                                <button onclick="copyChromeUrl('chrome://components', this)" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-teal-400 border border-slate-700 rounded text-[10px] font-medium transition flex items-center gap-1">
                                     <i class="fa-regular fa-copy"></i> Copiar URL
                                 </button>
                             </div>
@@ -693,15 +743,30 @@
     </main>
 
     <script>
-        function copyChromeUrl(url) {
-            const tempInput = document.createElement('textarea');
-            tempInput.value = url;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempInput);
+        async function copyChromeUrl(url, btn) {
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(url);
+                } else {
+                    const tempInput = document.createElement('textarea');
+                    tempInput.value = url;
+                    document.body.appendChild(tempInput);
+                    tempInput.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(tempInput);
+                }
 
-            showToast('URL Copiada al Portapapeles', `Pega '${url}' en la barra de direcciones.`, 'check');
+                if (btn) {
+                    const originalHtml = btn.innerHTML;
+                    btn.innerHTML = `<span class="text-emerald-400 font-semibold"><i class="fa-solid fa-check mr-1"></i> ¡Copiado!</span>`;
+                    setTimeout(() => {
+                        btn.innerHTML = originalHtml;
+                    }, 2000);
+                }
+                showToast('URL copiada', 'Pégala en la barra de direcciones de una nueva pestaña de Chrome.', 'check');
+            } catch (err) {
+                showToast('Error al copiar', 'No se pudo copiar automáticamente la URL.', 'error');
+            }
         }
 
         function showToast(title, message, iconType = 'check') {
@@ -786,6 +851,86 @@
             } else if (mode === 'simulation') {
                 badge.className = 'text-[10px] px-2 py-0.5 rounded font-mono bg-amber-500/20 text-amber-300 border border-amber-500/40';
                 badge.innerText = '🧪 Modo simulación';
+            } else if (mode === 'same_lang') {
+                badge.className = 'text-[10px] px-2 py-0.5 rounded font-mono bg-slate-700/50 text-slate-300 border border-slate-600';
+                badge.innerText = 'ℹ️ Idiomas idénticos (sin traducción necesaria)';
+            }
+        }
+
+        function setApiBadge(elementId, isAvailable) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            if (isAvailable) {
+                el.className = 'font-mono text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-bold';
+                el.innerText = 'Disponible';
+            } else {
+                el.className = 'font-mono text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700';
+                el.innerText = 'No encontrada';
+            }
+        }
+
+        async function detectGpuSpecs() {
+            const gpuEl = document.getElementById('diagGPU');
+            const modelEl = document.getElementById('diagGpuModel');
+            const vendorEl = document.getElementById('diagGpuVendor');
+            
+            let gpuModel = '';
+            let gpuVendor = '';
+            let isWebGpuActive = false;
+
+            // 1. Detección vía WebGPU
+            if (navigator.gpu) {
+                try {
+                    const adapter = await navigator.gpu.requestAdapter();
+                    if (adapter) {
+                        isWebGpuActive = true;
+                        if (adapter.info) {
+                            gpuVendor = adapter.info.vendor || '';
+                            gpuModel = adapter.info.architecture || adapter.info.device || adapter.info.description || '';
+                        } else if (typeof adapter.requestAdapterInfo === 'function') {
+                            const info = await adapter.requestAdapterInfo();
+                            gpuVendor = info.vendor || '';
+                            gpuModel = info.architecture || info.device || info.description || '';
+                        }
+                    }
+                } catch(e) {
+                    console.warn('WebGPU adapter info no accesible:', e);
+                }
+            }
+
+            if (isWebGpuActive) {
+                gpuEl.innerHTML = '<span class="text-emerald-400 font-bold"><i class="fa-solid fa-bolt"></i> WebGPU activo</span>';
+            } else {
+                checkWebGLFallback(gpuEl);
+            }
+
+            // 2. Fallback para nombre/modelo vía WebGL si WebGPU no expuso cadenas descriptivas
+            if (!gpuModel || !gpuVendor) {
+                try {
+                    const canvas = document.createElement('canvas');
+                    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+                    if (gl) {
+                        const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                        if (debugInfo) {
+                            gpuVendor = gpuVendor || gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL);
+                            gpuModel = gpuModel || gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+                        } else {
+                            gpuVendor = gpuVendor || gl.getParameter(gl.VENDOR);
+                            gpuModel = gpuModel || gl.getParameter(gl.RENDERER);
+                        }
+                    }
+                } catch(e) {
+                    console.warn('WebGL renderer info no accesible:', e);
+                }
+            }
+
+            if (modelEl) {
+                modelEl.innerText = gpuModel || 'Genérico / No identificado';
+                modelEl.title = gpuModel || '';
+            }
+            if (vendorEl) {
+                vendorEl.innerText = gpuVendor || 'Estándar del sistema';
+                vendorEl.title = gpuVendor || '';
             }
         }
 
@@ -799,27 +944,45 @@
             const diagFrameEl = document.getElementById('diagFrameContext');
             if (inIframe) {
                 diagFrameEl.className = 'font-mono text-xs px-2.5 py-1 rounded-md bg-rose-500/20 text-rose-300 border border-rose-500/40 font-bold flex items-center gap-1.5';
-                diagFrameEl.innerHTML = '<i class="fa-solid fa-triangle-exclamation text-rose-400"></i> iFrame (Cross-Origin Bloqueado)';
+                diagFrameEl.innerHTML = '<i class="fa-solid fa-triangle-exclamation text-rose-400"></i> iFrame (Cross-Origin bloqueado)';
             } else {
                 diagFrameEl.className = 'font-mono text-xs px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-bold flex items-center gap-1.5';
-                diagFrameEl.innerHTML = '<i class="fa-solid fa-circle-check text-emerald-400"></i> Ventana Principal (Top-Level)';
+                diagFrameEl.innerHTML = '<i class="fa-solid fa-circle-check text-emerald-400"></i> Ventana principal (top-level)';
             }
 
             document.getElementById('diagUA').innerText = navigator.userAgent;
 
-            const hasLanguageModel = Boolean(window.ai?.languageModel || window.LanguageModel);
-            document.getElementById('diagLanguageModel').innerText = hasLanguageModel ? 'Disponible' : 'No encontrado';
+            // Desglose de Task APIs
+            const hasLM = Boolean(window.ai?.languageModel || window.LanguageModel);
+            const hasSum = Boolean(window.ai?.summarizer || window.Summarizer);
+            const hasWriter = Boolean(window.ai?.writer || window.ai?.rewriter || window.Writer || window.Rewriter);
+            const hasTrans = Boolean(window.ai?.translator || window.Translator || window.translation);
 
-            try {
-                const canvas = document.createElement('canvas');
-                const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-                document.getElementById('diagGPU').innerText = gl ? 'WebGL Activo' : 'No detectado';
-            } catch(e) {
-                document.getElementById('diagGPU').innerText = 'No compatible';
+            setApiBadge('diagLanguageModel', hasLM);
+            setApiBadge('diagSummarizer', hasSum);
+            setApiBadge('diagWriter', hasWriter);
+            setApiBadge('diagTranslator', hasTrans);
+
+            // Hardware specs: CPU, RAM, JS Heap
+            const cores = navigator.hardwareConcurrency ? `${navigator.hardwareConcurrency} hilos lógicos` : 'No disponible';
+            document.getElementById('diagCpuCores').innerText = cores;
+
+            const ram = navigator.deviceMemory ? `≥ ${navigator.deviceMemory} GB` : 'No expuesta por navegador';
+            document.getElementById('diagRam').innerText = ram;
+
+            if (performance.memory) {
+                const usedMB = (performance.memory.usedJSHeapSize / (1024 * 1024)).toFixed(1);
+                const limitMB = (performance.memory.jsHeapSizeLimit / (1024 * 1024)).toFixed(0);
+                document.getElementById('diagJsHeap').innerText = `${usedMB} MB / ${limitMB} MB máx.`;
+            } else {
+                document.getElementById('diagJsHeap').innerText = 'No disponible';
             }
 
+            // Detección GPU Model & Vendor + WebGPU / WebGL
+            detectGpuSpecs();
+
             if (isSimulationMode) {
-                setReadyStatus('Modo Simulación Activo', 'amber');
+                setReadyStatus('Modo simulación activo', 'amber');
                 iframeNotice.classList.add('hidden');
                 setupNotice.classList.add('hidden');
                 return;
@@ -832,23 +995,23 @@
                     
                     if (status === 'readily' || status === 'available') {
                         isAIReady = true;
-                        setReadyStatus('Gemini Nano Listo (Local)', 'emerald');
+                        setReadyStatus('Gemini Nano listo (local)', 'emerald');
                         setupNotice.classList.add('hidden');
                         iframeNotice.classList.add('hidden');
                     } else if (status === 'after-download' || status === 'downloading') {
                         isAIReady = false;
-                        setReadyStatus('Descargando Modelo Local...', 'amber');
+                        setReadyStatus('Descargando modelo local...', 'amber');
                         setupNotice.classList.remove('hidden');
                         iframeNotice.classList.add('hidden');
                     } else {
                         isAIReady = false;
-                        setReadyStatus('No disponible (Revisar Flags)', 'rose');
+                        setReadyStatus('No disponible (revisar flags)', 'rose');
                         setupNotice.classList.remove('hidden');
                         iframeNotice.classList.add('hidden');
                     }
                 } else if (window.ai) {
                     isAIReady = true;
-                    setReadyStatus('API Detectada', 'emerald');
+                    setReadyStatus('API detectada', 'emerald');
                     setupNotice.classList.add('hidden');
                     iframeNotice.classList.add('hidden');
                 } else {
@@ -866,7 +1029,7 @@
                     setupNotice.classList.add('hidden');
                 } else {
                     isAIReady = false;
-                    setReadyStatus('Error en comprobación API', 'rose');
+                    setReadyStatus('Error en comprobación de API', 'rose');
                     setupNotice.classList.remove('hidden');
                 }
             }
@@ -900,7 +1063,7 @@
             isSimulationMode = true;
             document.getElementById('simModeText').innerText = 'Modo: Simulación';
             detectChromeAI();
-            showToast('Modo Simulación Activado', 'Ya puedes probar la interfaz interactiva.', 'warning');
+            showToast('Modo simulación activado', 'Ya puedes probar la interfaz interactiva.', 'warning');
         }
 
         function switchTab(tabId) {
@@ -983,14 +1146,23 @@
 
             const isStreaming = document.getElementById('streamToggle').checked;
             const sendBtn = document.getElementById('sendBtn');
+            const originalBtnContent = sendBtn.innerHTML;
             sendBtn.disabled = true;
+            sendBtn.innerHTML = `<span>Generando...</span><i class="fa-solid fa-circle-notch fa-spin text-xs"></i>`;
 
             const startTime = performance.now();
             let tokenCount = 0;
+            let responseContainer = null;
 
             try {
                 const session = await getOrCreateSession();
-                const responseContainer = appendMessage('assistant', '');
+                responseContainer = appendMessage('assistant', '');
+                responseContainer.innerHTML = `
+                    <div class="flex items-center gap-2 text-slate-400 text-xs py-0.5 animate-pulse">
+                        <i class="fa-solid fa-circle-notch fa-spin text-blue-400"></i>
+                        <span>Generando respuesta en local...</span>
+                    </div>`;
+
                 let accumulatedText = "";
 
                 if (isStreaming && typeof session.promptStreaming === 'function') {
@@ -1021,8 +1193,13 @@
                 }
             } catch (err) {
                 console.error(err);
-                appendMessage('system', `⚠️ Error: ${err.message || err}`);
+                if (responseContainer) {
+                    responseContainer.innerHTML = `<span class="text-rose-400">⚠️ Error: ${escapeHtml(err.message || String(err))}</span>`;
+                } else {
+                    appendMessage('system', `⚠️ Error: ${err.message || err}`);
+                }
             } finally {
+                sendBtn.innerHTML = originalBtnContent;
                 sendBtn.disabled = false;
                 scrollToBottom();
             }
@@ -1084,55 +1261,68 @@
             const resultEl = document.getElementById('sumResult');
             if (!input) return;
 
+            const btn = document.getElementById('sumBtn');
+            const originalBtnContent = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> Resumiendo...`;
+
             const sumType = document.getElementById('sumType').value;
             const sumLength = document.getElementById('sumLength').value;
 
             resultEl.innerText = "Procesando...";
 
-            // 1. Intentar Task API Nativa
-            if (!isSimulationMode) {
-                const summarizerApi = window.ai?.summarizer || window.Summarizer;
-                if (summarizerApi) {
-                    try {
-                        const createFn = summarizerApi.create || summarizerApi.createSummarizer;
-                        if (typeof createFn === 'function') {
-                            const summarizer = await createFn.call(summarizerApi, {
-                                type: sumType,
-                                length: sumLength
-                            });
-                            const summary = await summarizer.summarize(input);
-                            resultEl.innerText = summary;
-                            updateMethodBadge('sumBadge', 'native');
-                            return;
+            try {
+                // 1. Intentar Task API Nativa
+                if (!isSimulationMode) {
+                    const summarizerApi = window.ai?.summarizer || window.Summarizer;
+                    if (summarizerApi) {
+                        try {
+                            const createFn = summarizerApi.create || summarizerApi.createSummarizer;
+                            if (typeof createFn === 'function') {
+                                const summarizer = await createFn.call(summarizerApi, {
+                                    type: sumType,
+                                    length: sumLength
+                                });
+                                const summary = await summarizer.summarize(input);
+                                resultEl.innerText = summary;
+                                updateMethodBadge('sumBadge', 'native');
+                                return;
+                            }
+                        } catch (nativeErr) {
+                            console.warn('Native Summarizer API falló, aplicando fallback Gemini Nano:', nativeErr);
                         }
-                    } catch (nativeErr) {
-                        console.warn('Native Summarizer API falló, aplicando fallback Gemini Nano:', nativeErr);
+                    }
+
+                    // 2. Fallback a Prompt API (Gemini Nano)
+                    const lm = window.ai?.languageModel || window.LanguageModel;
+                    if (lm) {
+                        try {
+                            const session = await lm.create({
+                                systemPrompt: "Eres un asistente experto en resumir textos de forma clara y precisa en español."
+                            });
+                            const prompt = `Por favor resume el siguiente texto. Estilo: ${sumType}, Longitud: ${sumLength}.\n\nTexto:\n${input}`;
+                            const summary = await session.prompt(prompt);
+                            resultEl.innerText = summary;
+                            updateMethodBadge('sumBadge', 'prompt');
+                            if (typeof session.destroy === 'function') session.destroy();
+                            return;
+                        } catch (promptErr) {
+                            console.warn('Prompt API fallback falló:', promptErr);
+                        }
                     }
                 }
 
-                // 2. Fallback a Prompt API (Gemini Nano)
-                const lm = window.ai?.languageModel || window.LanguageModel;
-                if (lm) {
-                    try {
-                        const session = await lm.create({
-                            systemPrompt: "Eres un asistente experto en resumir textos de forma clara y precisa en español."
-                        });
-                        const prompt = `Por favor resume el siguiente texto. Estilo: ${sumType}, Longitud: ${sumLength}.\n\nTexto:\n${input}`;
-                        const summary = await session.prompt(prompt);
-                        resultEl.innerText = summary;
-                        updateMethodBadge('sumBadge', 'prompt');
-                        if (typeof session.destroy === 'function') session.destroy();
-                        return;
-                    } catch (promptErr) {
-                        console.warn('Prompt API fallback falló:', promptErr);
-                    }
-                }
+                // 3. Fallback a Simulación
+                await new Promise(r => setTimeout(r, 800));
+                resultEl.innerText = `• [Resumen simulado Gemini Nano]\n• Proceso ejecutado 100% en cliente.\n• Formato: ${sumType}, Longitud: ${sumLength}\n• El texto original consta de ${input.length} caracteres.`;
+                updateMethodBadge('sumBadge', 'simulation');
+            } catch (err) {
+                console.error(err);
+                resultEl.innerText = `⚠️ Error al resumir: ${err.message || err}`;
+            } finally {
+                btn.innerHTML = originalBtnContent;
+                btn.disabled = false;
             }
-
-            // 3. Fallback a Simulación
-            await new Promise(r => setTimeout(r, 800));
-            resultEl.innerText = `• [Resumen Simulado Gemini Nano]\n• Proceso ejecutado 100% en cliente.\n• Formato: ${sumType}, Longitud: ${sumLength}\n• El texto original consta de ${input.length} caracteres.`;
-            updateMethodBadge('sumBadge', 'simulation');
         }
 
         async function runWriter() {
@@ -1140,56 +1330,125 @@
             const resultEl = document.getElementById('writeResult');
             if (!input) return;
 
+            const btn = document.getElementById('writeBtn');
+            const originalBtnContent = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> Transformando...`;
+
             const tone = document.getElementById('writeTone').value;
             const action = document.getElementById('writeAction').value;
 
             resultEl.innerText = "Procesando...";
 
-            // 1. Intentar Task API Nativa
-            if (!isSimulationMode) {
-                const writerApi = window.ai?.writer || window.ai?.rewriter || window.Writer || window.Rewriter;
-                if (writerApi) {
-                    try {
-                        const createFn = writerApi.create || writerApi.createWriter;
-                        if (typeof createFn === 'function') {
-                            const instance = await createFn.call(writerApi, { tone });
-                            const result = await (instance.rewrite ? instance.rewrite(input, { context: `Acción: ${action}` }) : instance.write(input));
-                            resultEl.innerText = result;
-                            updateMethodBadge('writeBadge', 'native');
-                            return;
+            try {
+                // 1. Intentar Task API Nativa
+                if (!isSimulationMode) {
+                    const writerApi = window.ai?.writer || window.ai?.rewriter || window.Writer || window.Rewriter;
+                    if (writerApi) {
+                        try {
+                            const createFn = writerApi.create || writerApi.createWriter;
+                            if (typeof createFn === 'function') {
+                                const instance = await createFn.call(writerApi, { tone });
+                                const result = await (instance.rewrite ? instance.rewrite(input, { context: `Acción: ${action}` }) : instance.write(input));
+                                resultEl.innerText = result;
+                                updateMethodBadge('writeBadge', 'native');
+                                return;
+                            }
+                        } catch (nativeErr) {
+                            console.warn('Native Writer API falló, aplicando fallback Gemini Nano:', nativeErr);
                         }
-                    } catch (nativeErr) {
-                        console.warn('Native Writer API falló, aplicando fallback Gemini Nano:', nativeErr);
+                    }
+
+                    // 2. Fallback a Prompt API (Gemini Nano)
+                    const lm = window.ai?.languageModel || window.LanguageModel;
+                    if (lm) {
+                        try {
+                            const session = await lm.create({
+                                systemPrompt: "Eres un redactor y editor profesional de textos en español."
+                            });
+                            const prompt = `Reescribe y transforma el siguiente borrador adaptándolo a un tono '${tone}' aplicando la instrucción '${action}'.\n\nBorrador original:\n"${input}"`;
+                            const result = await session.prompt(prompt);
+                            resultEl.innerText = result;
+                            updateMethodBadge('writeBadge', 'prompt');
+                            if (typeof session.destroy === 'function') session.destroy();
+                            return;
+                        } catch (promptErr) {
+                            console.warn('Prompt API fallback falló:', promptErr);
+                        }
                     }
                 }
 
-                // 2. Fallback a Prompt API (Gemini Nano)
-                const lm = window.ai?.languageModel || window.LanguageModel;
-                if (lm) {
-                    try {
-                        const session = await lm.create({
-                            systemPrompt: "Eres un redactor y editor profesional de textos en español."
-                        });
-                        const prompt = `Reescribe y transforma el siguiente borrador adaptándolo a un tono '${tone}' aplicando la instrucción '${action}'.\n\nBorrador original:\n"${input}"`;
-                        const result = await session.prompt(prompt);
-                        resultEl.innerText = result;
-                        updateMethodBadge('writeBadge', 'prompt');
-                        if (typeof session.destroy === 'function') session.destroy();
-                        return;
-                    } catch (promptErr) {
-                        console.warn('Prompt API fallback falló:', promptErr);
-                    }
+                // 3. Fallback a Simulación
+                await new Promise(r => setTimeout(r, 700));
+                if (tone === 'formal') {
+                    resultEl.innerText = "Estimado/a supervisor/a,\n\nLe escribo para informarle que el día de hoy no me será posible asistir a mis labores debido a un malestar de salud en la garganta. Mantendré la comunicación más tarde para dar un seguimiento.\n\nAtentamente.";
+                } else {
+                    resultEl.innerText = "Hola! Te comento que hoy no podré incorporarme debido a unas molestias en la garganta. Te aviso en cuanto me sienta mejor.";
                 }
+                updateMethodBadge('writeBadge', 'simulation');
+            } catch (err) {
+                console.error(err);
+                resultEl.innerText = `⚠️ Error al transformar texto: ${err.message || err}`;
+            } finally {
+                btn.innerHTML = originalBtnContent;
+                btn.disabled = false;
             }
+        }
 
-            // 3. Fallback a Simulación
-            await new Promise(r => setTimeout(r, 700));
-            if (tone === 'formal') {
-                resultEl.innerText = "Estimado/a supervisor/a,\n\nLe escribo para informarle que el día de hoy no me será posible asistir a mis labores debido a un malestar de salud en la garganta. Mantendré la comunicación más tarde para dar un seguimiento.\n\nAtentamente.";
-            } else {
-                resultEl.innerText = "Hola! Te comento que hoy no podré incorporarme debido a unas molestias en la garganta. Te aviso en cuanto me sienta mejor.";
+        function updateDisabledLanguageOptions() {
+            const sourceSelect = document.getElementById('transSource');
+            const targetSelect = document.getElementById('transTarget');
+            if (!sourceSelect || !targetSelect) return;
+
+            const sourceVal = sourceSelect.value;
+            const targetVal = targetSelect.value;
+
+            // Deshabilitar en transTarget la opción seleccionada en transSource (si no es 'auto')
+            Array.from(targetSelect.options).forEach(opt => {
+                opt.disabled = (sourceVal !== 'auto' && opt.value === sourceVal);
+            });
+
+            // Deshabilitar en transSource la opción seleccionada en transTarget
+            Array.from(sourceSelect.options).forEach(opt => {
+                if (opt.value !== 'auto') {
+                    opt.disabled = (opt.value === targetVal);
+                }
+            });
+
+            // Si la opción seleccionada quedó deshabilitada, auto-seleccionar una válida
+            if (targetSelect.selectedOptions[0]?.disabled) {
+                const firstEnabled = Array.from(targetSelect.options).find(o => !o.disabled);
+                if (firstEnabled) targetSelect.value = firstEnabled.value;
             }
-            updateMethodBadge('writeBadge', 'simulation');
+            if (sourceSelect.selectedOptions[0]?.disabled) {
+                const firstEnabled = Array.from(sourceSelect.options).find(o => !o.disabled);
+                if (firstEnabled) sourceSelect.value = firstEnabled.value;
+            }
+        }
+
+        function handleTransSourceChange() {
+            updateDisabledLanguageOptions();
+        }
+
+        function handleTransTargetChange() {
+            updateDisabledLanguageOptions();
+        }
+
+        function swapTranslationLanguages() {
+            const sourceSelect = document.getElementById('transSource');
+            const targetSelect = document.getElementById('transTarget');
+            
+            let sourceVal = sourceSelect.value;
+            const targetVal = targetSelect.value;
+            
+            if (sourceVal === 'auto') {
+                sourceVal = 'es';
+            }
+            
+            sourceSelect.value = targetVal;
+            targetSelect.value = sourceVal;
+
+            updateDisabledLanguageOptions();
         }
 
         async function runTranslator() {
@@ -1197,69 +1456,129 @@
             const resultEl = document.getElementById('transResult');
             if (!input) return;
 
+            const btn = document.getElementById('transBtn');
+            const originalBtnContent = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> Traduciendo...`;
+
             const sourceLang = document.getElementById('transSource').value;
             const targetLang = document.getElementById('transTarget').value;
 
-            resultEl.innerText = `Traduciendo de [${sourceLang.toUpperCase()}] a [${targetLang.toUpperCase()}]...`;
-
-            // 1. Intentar Task API Nativa de Traducción
-            if (!isSimulationMode) {
-                const translatorApi = window.ai?.translator || window.Translator || window.translation;
-
-                if (translatorApi) {
-                    try {
-                        const createFn = translatorApi.create || translatorApi.createTranslator;
-                        if (typeof createFn === 'function') {
-                            const translator = await createFn.call(translatorApi, {
-                                sourceLanguage: sourceLang,
-                                targetLanguage: targetLang
-                            });
-                            const result = await translator.translate(input);
-                            resultEl.innerText = result;
-                            updateMethodBadge('transBadge', 'native');
-                            return;
-                        }
-                    } catch (nativeErr) {
-                        console.warn('Native Translator API no pudo cargar el modelo de idioma nativo, aplicando fallback Gemini Nano:', nativeErr);
-                    }
-                }
-
-                // 2. Fallback a Prompt API (Gemini Nano) para traducción local real
-                const lm = window.ai?.languageModel || window.LanguageModel;
-                if (lm) {
-                    try {
-                        const session = await lm.create({
-                            systemPrompt: `Eres un traductor profesional del idioma con código '${sourceLang}' al idioma con código '${targetLang}'. Traduce el texto directamente manteniendo exactamente el significado.`
-                        });
-                        const prompt = `Traduce el siguiente texto de ${sourceLang} a ${targetLang}:\n\n${input}`;
-                        const result = await session.prompt(prompt);
-                        resultEl.innerText = result;
-                        updateMethodBadge('transBadge', 'prompt');
-                        if (typeof session.destroy === 'function') session.destroy();
-                        return;
-                    } catch (promptErr) {
-                        console.warn('Prompt API fallback falló:', promptErr);
-                    }
-                }
+            // Validación inmediata si el usuario seleccionó manualmente el mismo idioma
+            if (sourceLang !== 'auto' && sourceLang === targetLang) {
+                resultEl.innerText = input;
+                updateMethodBadge('transBadge', 'same_lang');
+                return;
             }
 
-            // 3. Modo simulación
-            await new Promise(r => setTimeout(r, 750));
-            
-            const dictSim = {
-                "es-en": "Google Chrome allows running artificial intelligence models directly in your web browser with complete privacy.",
-                "es-fr": "Google Chrome vous permet d'exécuter des modèles d'intelligence artificielle directement dans votre navigateur Web en toute confidentialité.",
-                "es-de": "Mit Google Chrome können Sie Modelle der künstlichen Intelligenz mit absoluter Privatsphäre direkt in Ihrem Webbrowser ausführen.",
-                "es-ja": "Google Chromeを使用すると、完全なプライバシーを確​​保しながら、Webブラウザで人工知能モデルを直接実行できます。"
-            };
+            let effectiveSourceLang = sourceLang;
 
-            const key = `${sourceLang}-${targetLang}`;
-            if (dictSim[key]) {
-                resultEl.innerText = dictSim[key];
+            if (sourceLang === 'auto') {
+                resultEl.innerText = `Detectando idioma y traduciendo a [${targetLang.toUpperCase()}]...`;
             } else {
-                resultEl.innerText = `[Traducción Simulada ${sourceLang.toUpperCase()} ➔ ${targetLang.toUpperCase()}]\n${input}`;
+                resultEl.innerText = `Traduciendo de [${sourceLang.toUpperCase()}] a [${targetLang.toUpperCase()}]...`;
             }
-            updateMethodBadge('transBadge', 'simulation');
+
+            try {
+                // 1. Si está en "auto", intentar detectar idioma con Language Detector API
+                if (!isSimulationMode && sourceLang === 'auto') {
+                    const detectorApi = window.ai?.languageDetector || window.LanguageDetector || window.translation;
+                    if (detectorApi) {
+                        try {
+                            const createDetectorFn = detectorApi.create || detectorApi.createDetector;
+                            if (typeof createDetectorFn === 'function') {
+                                const detector = await createDetectorFn.call(detectorApi);
+                                const results = await detector.detect(input);
+                                if (results && results.length > 0 && results[0].detectedLanguage) {
+                                    effectiveSourceLang = results[0].detectedLanguage;
+                                }
+                            }
+                        } catch (detErr) {
+                            console.warn('Language Detector API no disponible o falló:', detErr);
+                        }
+                    }
+                }
+
+                // Si tras la autodetección el idioma detectado coincide con el de destino
+                if (effectiveSourceLang === targetLang) {
+                    resultEl.innerText = input;
+                    updateMethodBadge('transBadge', 'same_lang');
+                    return;
+                }
+
+                // 2. Intentar Task API Nativa de Traducción
+                if (!isSimulationMode && effectiveSourceLang !== 'auto') {
+                    const translatorApi = window.ai?.translator || window.Translator || window.translation;
+
+                    if (translatorApi) {
+                        try {
+                            const createFn = translatorApi.create || translatorApi.createTranslator;
+                            if (typeof createFn === 'function') {
+                                const translator = await createFn.call(translatorApi, {
+                                    sourceLanguage: effectiveSourceLang,
+                                    targetLanguage: targetLang
+                                });
+                                const result = await translator.translate(input);
+                                resultEl.innerText = result;
+                                updateMethodBadge('transBadge', 'native');
+                                return;
+                            }
+                        } catch (nativeErr) {
+                            console.warn('Native Translator API no pudo cargar el modelo nativo, aplicando fallback Gemini Nano:', nativeErr);
+                        }
+                    }
+                }
+
+                // 3. Fallback a Prompt API (Gemini Nano)
+                if (!isSimulationMode) {
+                    const lm = window.ai?.languageModel || window.LanguageModel;
+                    if (lm) {
+                        try {
+                            const session = await lm.create({
+                                systemPrompt: effectiveSourceLang === 'auto'
+                                    ? `Eres un traductor profesional. Detecta automáticamente el idioma de origen del texto y tradúcelo con total precisión al idioma con código '${targetLang}'. Devuelve únicamente el texto traducido.`
+                                    : `Eres un traductor profesional del idioma con código '${effectiveSourceLang}' al idioma con código '${targetLang}'. Traduce el texto directamente manteniendo exactamente el significado. Devuelve únicamente el texto traducido.`
+                            });
+                            const prompt = effectiveSourceLang === 'auto'
+                                ? `Traduce el siguiente texto al idioma '${targetLang}':\n\n${input}`
+                                : `Traduce el siguiente texto de ${effectiveSourceLang} a ${targetLang}:\n\n${input}`;
+                            const result = await session.prompt(prompt);
+                            resultEl.innerText = result;
+                            updateMethodBadge('transBadge', 'prompt');
+                            if (typeof session.destroy === 'function') session.destroy();
+                            return;
+                        } catch (promptErr) {
+                            console.warn('Prompt API fallback falló:', promptErr);
+                        }
+                    }
+                }
+
+                // 4. Modo simulación
+                await new Promise(r => setTimeout(r, 750));
+                
+                const dictSim = {
+                    "es-en": "Google Chrome allows running artificial intelligence models directly in your web browser with complete privacy.",
+                    "es-fr": "Google Chrome vous permet d'exécuter des modèles d'intelligence artificielle directamente dans votre navigateur Web en toute confidentialité.",
+                    "es-de": "Mit Google Chrome können Sie Modelle der künstlichen Intelligenz mit absoluter Privatsphäre direkt in Ihrem Webbrowser ausführen.",
+                    "es-ja": "Google Chromeを使用すると、完全なプライバシーを確​​保しながら、Webブラウザで人工知能モデルを直接実行できます。",
+                    "en-es": "Google Chrome permite ejecutar modelos de inteligencia artificial directamente en su navegador web con total privacidad."
+                };
+
+                const simSource = effectiveSourceLang === 'auto' ? 'es' : effectiveSourceLang;
+                const key = `${simSource}-${targetLang}`;
+                if (dictSim[key]) {
+                    resultEl.innerText = dictSim[key];
+                } else {
+                    resultEl.innerText = `[Traducción simulada ${simSource.toUpperCase()} ➔ ${targetLang.toUpperCase()}]\n${input}`;
+                }
+                updateMethodBadge('transBadge', 'simulation');
+            } catch (err) {
+                console.error(err);
+                resultEl.innerText = `⚠️ Error al traducir texto: ${err.message || err}`;
+            } finally {
+                btn.innerHTML = originalBtnContent;
+                btn.disabled = false;
+            }
         }
 
         function loadPreset(presetKey) {
@@ -1272,7 +1591,10 @@
         async function runBenchmark() {
             const btn = document.getElementById('benchBtn');
             const resBox = document.getElementById('benchResults');
+            const originalBtnContent = btn.innerHTML;
+
             btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> Ejecutando prueba...`;
             resBox.classList.remove('hidden');
 
             document.getElementById('benchTTFT').innerText = 'Midiendo...';
@@ -1281,18 +1603,26 @@
 
             const benchPrompt = "Escribe una lista de 5 consejos prácticos para optimizar el rendimiento de una aplicación web en JavaScript.";
             
-            const start = performance.now();
             let ttft = 0;
             let fullText = "";
 
             try {
                 const session = await getOrCreateSession();
+                const start = performance.now();
                 
                 if (typeof session.promptStreaming === 'function') {
                     const stream = session.promptStreaming(benchPrompt);
                     for await (const chunk of stream) {
-                        if (!ttft) ttft = performance.now() - start;
-                        fullText = chunk;
+                        if (typeof chunk === 'string') {
+                            if (!ttft) ttft = performance.now() - start;
+                            if (!fullText) {
+                                fullText = chunk;
+                            } else if (chunk.startsWith(fullText)) {
+                                fullText = chunk;
+                            } else {
+                                fullText += chunk;
+                            }
+                        }
                     }
                 } else {
                     fullText = await session.prompt(benchPrompt);
@@ -1300,23 +1630,28 @@
                 }
 
                 const totalTime = performance.now() - start;
-                const estimatedTokens = fullText.length / 4;
-                const tps = ((estimatedTokens / totalTime) * 1000).toFixed(1);
+                const words = fullText.trim().split(/\s+/).filter(Boolean).length;
+                const estimatedTokens = Math.max(1, Math.round(words * 1.33 || fullText.length / 3.8));
+                const generationTime = totalTime > 0 ? totalTime : 1;
+                const tps = ((estimatedTokens / (generationTime / 1000))).toFixed(1);
 
-                document.getElementById('benchTTFT').innerText = `${Math.round(ttft)} ms`;
-                document.getElementById('benchTotal').innerText = `${Math.round(totalTime)} ms`;
+                document.getElementById('benchTTFT').innerText = `${Math.max(1, Math.round(ttft))} ms`;
+                document.getElementById('benchTotal').innerText = `${Math.max(1, Math.round(totalTime))} ms`;
                 document.getElementById('benchTPS').innerText = `${tps} t/s`;
             } catch (err) {
+                console.error('Error en benchmark:', err);
                 document.getElementById('benchTTFT').innerText = 'Error';
                 document.getElementById('benchTotal').innerText = 'Error';
                 document.getElementById('benchTPS').innerText = 'Error';
             } finally {
+                btn.innerHTML = originalBtnContent;
                 btn.disabled = false;
             }
         }
 
         window.onload = function() {
             detectChromeAI();
+            updateDisabledLanguageOptions();
         };
     </script>
 </body>
