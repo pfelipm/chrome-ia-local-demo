@@ -537,162 +537,99 @@
         <!-- ================= TAB 4: DIAGNOSTICS & SETUP GUIDE ================= -->
         <div id="view-diagnostics" class="tab-view hidden flex-col gap-6">
             
-            <!-- Official Chrome Documentation Banner -->
-            <div class="glass-panel p-4 rounded-xl border border-indigo-500/30 bg-gradient-to-r from-indigo-950/40 via-slate-900 to-slate-900">
-                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-                    <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 rounded-xl bg-indigo-500/20 border border-indigo-500/40 flex items-center justify-center text-indigo-400 shrink-0">
-                            <i class="fa-solid fa-book-bookmark text-base"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xs font-bold text-indigo-300 uppercase tracking-wider">Documentación oficial de Chrome Built-in AI</h3>
-                            <p class="text-xs text-slate-400 mt-0.5">Consulta la especificación oficial, guías de APIs e itinerario de funciones de IA integrada de Google Chrome.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-2 w-full sm:w-auto shrink-0">
-                        <a href="https://developer.chrome.com/docs/ai/built-in" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial px-3 py-1.5 bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 border border-indigo-500/40 rounded-lg text-xs font-semibold transition flex items-center justify-center gap-1.5">
-                            <span>Chrome Built-in AI</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                        </a>
-                        <a href="https://developer.chrome.com/docs/ai/built-in-apis" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial px-3 py-1.5 bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 border border-blue-500/40 rounded-lg text-xs font-semibold transition flex items-center justify-center gap-1.5">
-                            <span>Referencia de APIs</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Chrome Internal URLs Panel -->
-            <div class="glass-panel p-4 rounded-xl border border-blue-500/20 bg-gradient-to-r from-blue-900/20 to-slate-900">
-                <h3 class="text-xs font-bold text-blue-300 uppercase tracking-wider mb-2 flex items-center gap-2">
-                    <i class="fa-solid fa-compass"></i> Acceso rápido a URL de configuración de Chrome (chrome://)
-                </h3>
-                <p class="text-xs text-slate-400 mb-3">
-                    Debido a políticas de seguridad del navegador, las páginas web no pueden abrir enlaces <code>chrome://</code> directamente. Haz clic en cualquiera de los botones para copiar la URL al portapapeles y pegarla en una nueva pestaña.
-                </p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2">
-                    <button onclick="copyChromeUrl('chrome://flags/#prompt-api-for-gemini-nano', this)" class="p-2.5 bg-slate-900 hover:bg-slate-800 border border-slate-700/80 rounded-lg text-left transition group">
-                        <div class="flex items-center justify-between text-blue-400 text-xs font-semibold">
-                            <span>Flag de Prompt API</span>
-                            <i class="fa-regular fa-copy group-hover:scale-110 transition"></i>
-                        </div>
-                        <div class="text-[10px] text-slate-500 font-mono truncate mt-0.5">chrome://flags/#prompt-api-for-gemini-nano</div>
-                    </button>
-
-                    <button onclick="copyChromeUrl('chrome://settings/system', this)" class="p-2.5 bg-slate-900 hover:bg-slate-800 border border-slate-700/80 rounded-lg text-left transition group">
-                        <div class="flex items-center justify-between text-purple-400 text-xs font-semibold">
-                            <span>Ajustes de IA (Chrome 148+)</span>
-                            <i class="fa-regular fa-copy group-hover:scale-110 transition"></i>
-                        </div>
-                        <div class="text-[10px] text-slate-500 font-mono truncate mt-0.5">chrome://settings/system</div>
-                    </button>
-
-                    <button onclick="copyChromeUrl('chrome://components', this)" class="p-2.5 bg-slate-900 hover:bg-slate-800 border border-slate-700/80 rounded-lg text-left transition group">
-                        <div class="flex items-center justify-between text-teal-400 text-xs font-semibold">
-                            <span>Componentes de Chrome</span>
-                            <i class="fa-regular fa-copy group-hover:scale-110 transition"></i>
-                        </div>
-                        <div class="text-[10px] text-slate-500 font-mono truncate mt-0.5">chrome://components</div>
-                    </button>
-
-                    <button onclick="copyChromeUrl('chrome://on-device-internals', this)" class="p-2.5 bg-slate-900 hover:bg-slate-800 border border-slate-700/80 rounded-lg text-left transition group">
-                        <div class="flex items-center justify-between text-amber-400 text-xs font-semibold">
-                            <span>Diagnóstico on-device</span>
-                            <i class="fa-regular fa-copy group-hover:scale-110 transition"></i>
-                        </div>
-                        <div class="text-[10px] text-slate-500 font-mono truncate mt-0.5">chrome://on-device-internals</div>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Permission Policy Explanation Banner -->
-            <div class="glass-panel p-4 rounded-xl border border-rose-500/30 bg-rose-950/20">
-                <h3 class="text-xs font-bold text-rose-300 uppercase tracking-wider mb-2 flex items-center gap-2">
-                    <i class="fa-solid fa-shield-halved text-rose-400"></i> ¿Qué hacer si ves "NotAllowedError: Permission Policy is not enabled"?
-                </h3>
-                <p class="text-xs text-slate-300 leading-relaxed mb-2">
-                    Chrome restringe las Web AI APIs para que no puedan ejecutarse dentro de <code>&lt;iframe&gt;</code>s sin permiso explícito del sitio web padre.
-                </p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs mt-3">
-                    <div class="bg-slate-900/90 p-3 rounded-lg border border-slate-800">
-                        <strong class="text-blue-400 font-semibold block mb-1">Opción A: Ejecutar en pestaña independiente</strong>
-                        <p class="text-slate-400 text-[11px]">Guarda este código HTML como archivo e ingrésalo directamente como documento principal (<code>file:///...</code>). Al ser la ventana superior, Gemini Nano funcionará sin restricción.</p>
-                    </div>
-                    <div class="bg-slate-900/90 p-3 rounded-lg border border-slate-800">
-                        <strong class="text-amber-400 font-semibold block mb-1">Opción B: Usar modo simulación</strong>
-                        <p class="text-slate-400 text-[11px]">Activa el botón de simulación en el menú superior para validar todas las respuestas, prompts, benchmarks y streaming directamente en esta vista previa encajada.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- SECCIÓN 1: TELEMETRÍA Y DIAGNÓSTICO EN VIVO (2 Columnas) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 
+                <!-- Tarjeta 1: Estado del entorno de ejecución -->
                 <div class="glass-panel p-5 rounded-xl flex flex-col gap-4">
                     <h2 class="font-bold text-slate-200 text-sm flex items-center gap-2 border-b border-slate-800 pb-3">
-                        <i class="fa-solid fa-laptop-code text-blue-400"></i> Estado del entorno de ejecución
+                        <i class="fa-solid fa-laptop-code text-blue-400"></i> Estado del entorno de ejecución y APIs
                     </h2>
 
-                    <ul class="space-y-2 text-xs">
-                        <li class="flex justify-between items-center bg-slate-900/80 p-2 rounded-lg border border-slate-800">
+                    <ul class="space-y-2.5 text-xs">
+                        <li class="flex justify-between items-center bg-slate-900/80 p-2.5 rounded-lg border border-slate-800">
                             <span class="text-slate-400">Contexto de ejecución:</span>
                             <span id="diagFrameContext" class="font-mono text-slate-200">Comprobando...</span>
                         </li>
-                        <li class="flex justify-between items-center bg-slate-900/80 p-2 rounded-lg border border-slate-800">
+                        <li class="flex justify-between items-center bg-slate-900/80 p-2.5 rounded-lg border border-slate-800">
                             <span class="text-slate-400">Aceleración gráfica:</span>
                             <span id="diagGPU" class="font-mono text-slate-200">Comprobando...</span>
                         </li>
-                        <li class="flex justify-between items-center bg-slate-900/80 p-2 rounded-lg border border-slate-800">
+                        <li class="flex justify-between items-center bg-slate-900/80 p-2.5 rounded-lg border border-slate-800">
                             <span class="text-slate-400">Prompt API (LanguageModel):</span>
                             <span id="diagLanguageModel" class="font-mono text-slate-200">Detectando...</span>
                         </li>
-                        <li class="flex justify-between items-center bg-slate-900/80 p-2 rounded-lg border border-slate-800">
+                        <li class="flex justify-between items-center bg-slate-900/80 p-2.5 rounded-lg border border-slate-800">
                             <span class="text-slate-400">Summarizer API:</span>
                             <span id="diagSummarizer" class="font-mono text-slate-200">Detectando...</span>
                         </li>
-                        <li class="flex justify-between items-center bg-slate-900/80 p-2 rounded-lg border border-slate-800">
+                        <li class="flex justify-between items-center bg-slate-900/80 p-2.5 rounded-lg border border-slate-800">
                             <span class="text-slate-400">Writer & Rewriter API:</span>
                             <span id="diagWriter" class="font-mono text-slate-200">Detectando...</span>
                         </li>
-                        <li class="flex justify-between items-center bg-slate-900/80 p-2 rounded-lg border border-slate-800">
+                        <li class="flex justify-between items-center bg-slate-900/80 p-2.5 rounded-lg border border-slate-800">
                             <span class="text-slate-400">Translator API:</span>
                             <span id="diagTranslator" class="font-mono text-slate-200">Detectando...</span>
                         </li>
-                        <li class="flex justify-between items-center bg-slate-900/80 p-2 rounded-lg border border-slate-800">
+                        <li class="flex justify-between items-center bg-slate-900/80 p-2.5 rounded-lg border border-slate-800">
                             <span class="text-slate-400">Navegador detectado:</span>
-                            <span id="diagUA" class="font-mono text-slate-300 text-[11px] truncate max-w-[160px]">--</span>
+                            <span id="diagUA" class="font-mono text-slate-300 text-[11px] truncate max-w-[240px] cursor-help" title="Detectando...">--</span>
                         </li>
                     </ul>
                 </div>
 
+                <!-- Tarjeta 2: Especificaciones de hardware del sistema -->
                 <div class="glass-panel p-5 rounded-xl flex flex-col gap-4">
                     <h2 class="font-bold text-slate-200 text-sm flex items-center gap-2 border-b border-slate-800 pb-3">
                         <i class="fa-solid fa-microchip text-teal-400"></i> Especificaciones de hardware del sistema
                     </h2>
 
-                    <ul class="space-y-2 text-xs">
-                        <li class="flex justify-between items-center bg-slate-900/80 p-2 rounded-lg border border-slate-800">
-                            <span class="text-slate-400">Acelerador GPU:</span>
-                            <span id="diagGpuModel" class="font-mono text-slate-200 text-right truncate max-w-[160px]" title="Detectando...">Detectando...</span>
+                    <ul class="space-y-2.5 text-xs">
+                        <li class="flex justify-between items-center bg-slate-900/80 p-2.5 rounded-lg border border-slate-800">
+                            <span class="text-slate-400">Acelerador GPU (modelo):</span>
+                            <span id="diagGpuModel" class="font-mono text-slate-200 text-right truncate max-w-[240px]" title="Detectando...">Detectando...</span>
                         </li>
-                        <li class="flex justify-between items-center bg-slate-900/80 p-2 rounded-lg border border-slate-800">
+                        <li class="flex justify-between items-center bg-slate-900/80 p-2.5 rounded-lg border border-slate-800">
                             <span class="text-slate-400">Fabricante de GPU:</span>
-                            <span id="diagGpuVendor" class="font-mono text-slate-200 text-right truncate max-w-[160px]">Detectando...</span>
+                            <span id="diagGpuVendor" class="font-mono text-slate-200 text-right truncate max-w-[240px]">Detectando...</span>
                         </li>
-                        <li class="flex justify-between items-center bg-slate-900/80 p-2 rounded-lg border border-slate-800">
+                        <li class="flex justify-between items-center bg-slate-900/80 p-2.5 rounded-lg border border-slate-800">
                             <span class="text-slate-400">Hilos lógicos de CPU:</span>
                             <span id="diagCpuCores" class="font-mono text-slate-200">Detectando...</span>
                         </li>
-                        <li class="flex justify-between items-center bg-slate-900/80 p-2 rounded-lg border border-slate-800">
+                        <li class="flex justify-between items-center bg-slate-900/80 p-2.5 rounded-lg border border-slate-800">
                             <span class="text-slate-400">Memoria RAM estimada:</span>
                             <span id="diagRam" class="font-mono text-slate-200">Detectando...</span>
                         </li>
-                        <li class="flex justify-between items-center bg-slate-900/80 p-2 rounded-lg border border-slate-800">
-                            <span class="text-slate-400">Memoria JS en uso:</span>
+                        <li class="flex justify-between items-center bg-slate-900/80 p-2.5 rounded-lg border border-slate-800">
+                            <span class="text-slate-400">Memoria JS en uso (Heap):</span>
                             <span id="diagJsHeap" class="font-mono text-slate-200">Detectando...</span>
                         </li>
                     </ul>
-                </div>
 
+                    <!-- Mini banner integrado de documentación oficial -->
+                    <div class="mt-auto pt-3 border-t border-slate-800/80 flex items-center justify-between gap-3 text-xs">
+                        <span class="text-slate-400 flex items-center gap-1.5 text-[11px]">
+                            <i class="fa-solid fa-book-bookmark text-indigo-400"></i> Documentación oficial:
+                        </span>
+                        <div class="flex items-center gap-2">
+                            <a href="https://developer.chrome.com/docs/ai/built-in" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 border border-indigo-500/40 rounded-lg text-[11px] font-semibold transition flex items-center gap-1">
+                                <span>Built-in AI</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                            </a>
+                            <a href="https://developer.chrome.com/docs/ai/built-in-apis" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 border border-blue-500/40 rounded-lg text-[11px] font-semibold transition flex items-center gap-1">
+                                <span>APIs</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 2: GUÍA DE CONFIGURACIÓN Y HERRAMIENTAS DE CHROME (2 Columnas) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                
+                <!-- Columna Izquierda: Pasos de activación -->
                 <div class="glass-panel p-5 rounded-xl flex flex-col gap-4">
                     <h2 class="font-bold text-slate-200 text-sm flex items-center gap-2 border-b border-slate-800 pb-3">
                         <i class="fa-solid fa-list-check text-indigo-400"></i> Pasos para activar Gemini Nano en Chrome (v148+)
@@ -731,7 +668,7 @@
                         </li>
                         <li class="bg-slate-900/50 p-2.5 rounded-lg border border-slate-800">
                             <div class="flex items-center justify-between gap-2 mb-1">
-                                <strong>4. Iniciar y monitorear la descarga (~2.5 GB):</strong>
+                                <strong>4. Iniciar y supervisar la descarga (~2.5 GB):</strong>
                                 <button onclick="copyChromeUrl('chrome://components', this)" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-teal-400 border border-slate-700 rounded text-[10px] font-medium transition flex items-center gap-1">
                                     <i class="fa-regular fa-copy"></i> Copiar URL
                                 </button>
@@ -739,6 +676,74 @@
                             Abre DevTools (F12) y ejecuta <code>await LanguageModel.create()</code>. Comprueba en <code>chrome://components</code> el componente <em>Optimization Guide On Device Model</em>.
                         </li>
                     </ol>
+                </div>
+
+                <!-- Columna Derecha: URLs internas y Permission Policy -->
+                <div class="flex flex-col gap-6">
+                    
+                    <!-- URLs internas -->
+                    <div class="glass-panel p-5 rounded-xl border border-blue-500/20 bg-gradient-to-r from-blue-900/20 to-slate-900 flex flex-col gap-3">
+                        <h3 class="text-xs font-bold text-blue-300 uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-compass"></i> Acceso rápido a URLs de Chrome (chrome://)
+                        </h3>
+                        <p class="text-xs text-slate-400">
+                            Haz clic en cualquiera de los accesos para copiar la dirección y pegarla directamente en la barra de navegación de una nueva pestaña:
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                            <button onclick="copyChromeUrl('chrome://flags/#prompt-api-for-gemini-nano', this)" class="p-2.5 bg-slate-900 hover:bg-slate-800 border border-slate-700/80 rounded-lg text-left transition group">
+                                <div class="flex items-center justify-between text-blue-400 text-xs font-semibold">
+                                    <span>Flag de Prompt API</span>
+                                    <i class="fa-regular fa-copy group-hover:scale-110 transition"></i>
+                                </div>
+                                <div class="text-[10px] text-slate-500 font-mono truncate mt-0.5">chrome://flags/#prompt-api...</div>
+                            </button>
+
+                            <button onclick="copyChromeUrl('chrome://settings/system', this)" class="p-2.5 bg-slate-900 hover:bg-slate-800 border border-slate-700/80 rounded-lg text-left transition group">
+                                <div class="flex items-center justify-between text-purple-400 text-xs font-semibold">
+                                    <span>Ajustes de IA</span>
+                                    <i class="fa-regular fa-copy group-hover:scale-110 transition"></i>
+                                </div>
+                                <div class="text-[10px] text-slate-500 font-mono truncate mt-0.5">chrome://settings/system</div>
+                            </button>
+
+                            <button onclick="copyChromeUrl('chrome://components', this)" class="p-2.5 bg-slate-900 hover:bg-slate-800 border border-slate-700/80 rounded-lg text-left transition group">
+                                <div class="flex items-center justify-between text-teal-400 text-xs font-semibold">
+                                    <span>Componentes</span>
+                                    <i class="fa-regular fa-copy group-hover:scale-110 transition"></i>
+                                </div>
+                                <div class="text-[10px] text-slate-500 font-mono truncate mt-0.5">chrome://components</div>
+                            </button>
+
+                            <button onclick="copyChromeUrl('chrome://on-device-internals', this)" class="p-2.5 bg-slate-900 hover:bg-slate-800 border border-slate-700/80 rounded-lg text-left transition group">
+                                <div class="flex items-center justify-between text-amber-400 text-xs font-semibold">
+                                    <span>Diagnóstico on-device</span>
+                                    <i class="fa-regular fa-copy group-hover:scale-110 transition"></i>
+                                </div>
+                                <div class="text-[10px] text-slate-500 font-mono truncate mt-0.5">chrome://on-device-internals</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Resolución de Permission Policy / Iframes -->
+                    <div class="glass-panel p-4 rounded-xl border border-rose-500/30 bg-rose-950/20 flex flex-col gap-2">
+                        <h3 class="text-xs font-bold text-rose-300 uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-shield-halved text-rose-400"></i> ¿Qué hacer ante "Permission Policy is not enabled"?
+                        </h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Chrome bloquea las Web AI APIs dentro de <code>&lt;iframe&gt;</code> sin permiso del sitio padre.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs mt-1">
+                            <div class="bg-slate-900/90 p-2.5 rounded-lg border border-slate-800">
+                                <strong class="text-blue-400 font-semibold block mb-0.5 text-[11px]">Pestaña independiente:</strong>
+                                <p class="text-slate-400 text-[10px]">Abre el HTML como documento principal (<code>file:///...</code>).</p>
+                            </div>
+                            <div class="bg-slate-900/90 p-2.5 rounded-lg border border-slate-800">
+                                <strong class="text-amber-400 font-semibold block mb-0.5 text-[11px]">Modo simulación:</strong>
+                                <p class="text-slate-400 text-[10px]">Usa el botón de simulación superior para pruebas en marcos.</p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
@@ -995,7 +1000,11 @@
                 diagFrameEl.innerHTML = '<i class="fa-solid fa-circle-check text-emerald-400"></i> Ventana principal (top-level)';
             }
 
-            document.getElementById('diagUA').innerText = navigator.userAgent;
+            const uaEl = document.getElementById('diagUA');
+            if (uaEl) {
+                uaEl.innerText = navigator.userAgent;
+                uaEl.title = navigator.userAgent;
+            }
 
             // Desglose de Task APIs
             const hasLM = Boolean(window.ai?.languageModel || window.LanguageModel);
