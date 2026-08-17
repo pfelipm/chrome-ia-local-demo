@@ -116,6 +116,10 @@
                 <button onclick="detectChromeAI()" title="Revisar disponibilidad" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">
                     <i class="fa-solid fa-rotate text-xs"></i>
                 </button>
+
+                <button onclick="openAboutModal()" title="Acerca de este proyecto y autor" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">
+                    <i class="fa-solid fa-circle-info text-xs text-indigo-400"></i>
+                </button>
             </div>
         </div>
     </header>
@@ -741,6 +745,47 @@
         </div>
 
     </main>
+
+    <!-- About / Attribution Modal -->
+    <div id="aboutModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm transition-opacity" onclick="handleAboutBackdropClick(event)">
+        <div class="glass-panel bg-slate-900/95 border border-slate-800 rounded-2xl max-w-xl w-full shadow-2xl overflow-hidden animate-fadeIn" onclick="event.stopPropagation()">
+            <div class="p-6 sm:p-7 flex flex-col sm:flex-row gap-5 items-start">
+                <img src="https://drive.google.com/thumbnail?id=1pbNyTrnZeZvfWLu2Lm66f9tVQ3OqTKHx&sz=w500-h500" alt="Pablo Felip Monferrer" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full ring-2 ring-slate-700/60 object-cover shrink-0 shadow-lg mx-auto sm:mx-0">
+                <div class="flex-1 text-slate-300 text-xs leading-relaxed space-y-3">
+                    <h2 class="text-base font-bold text-slate-100 uppercase tracking-wide">CHROME LOCAL AI STUDIO</h2>
+                    <p>
+                        Entorno de prueba e inspección diseñado para explorar las capacidades de inferencia local de los modelos de inteligencia artificial integrados directamente en el navegador Google Chrome.
+                    </p>
+                    <p>
+                        Utiliza la potencia de <strong class="text-slate-100 font-semibold">Gemini Nano</strong> y las <strong class="text-slate-100 font-semibold">Web AI APIs</strong> para procesamiento lingüístico con aceleración por hardware (WebGPU). Garantiza privacidad total (<em>zero-data egress</em>), funcionamiento sin conexión (<em>offline</em>) y coste marginal cero.
+                    </p>
+                    <p>
+                        Creado por <strong class="text-slate-100 font-semibold">Pablo Felip Monferrer</strong> y distribuido bajo licencia libre.
+                    </p>
+                    <div class="pt-2 border-t border-slate-800/80">
+                        <p class="text-[11px] text-slate-400 italic mb-2">Entorno experimental para Chrome Built-in AI.</p>
+                        <span class="inline-block text-[10px] font-mono px-2.5 py-1 rounded bg-slate-950 border border-slate-800 text-slate-400">
+                            Última actualización: 17/08/2026
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-950/80 border-t border-slate-800/80 px-6 py-3.5 flex items-center justify-between">
+                <div class="flex items-center gap-4 text-xs font-semibold text-slate-300">
+                    <a href="https://www.linkedin.com/in/pfelipm/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition flex items-center gap-1.5">
+                        <i class="fa-brands fa-linkedin text-blue-400 text-base"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/pfelipm/chrome-ia-local-demo" target="_blank" rel="noopener noreferrer" class="hover:text-white transition flex items-center gap-1.5">
+                        <i class="fa-brands fa-github text-slate-300 text-base"></i> GitHub
+                    </a>
+                </div>
+                <button onclick="closeAboutModal()" class="px-5 py-2 bg-slate-100 hover:bg-white text-slate-900 font-bold text-xs rounded-xl transition shadow">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script>
         async function copyChromeUrl(url, btn) {
@@ -1648,6 +1693,26 @@
                 btn.disabled = false;
             }
         }
+
+        function openAboutModal() {
+            document.getElementById('aboutModal').classList.remove('hidden');
+        }
+
+        function closeAboutModal() {
+            document.getElementById('aboutModal').classList.add('hidden');
+        }
+
+        function handleAboutBackdropClick(event) {
+            if (event.target.id === 'aboutModal') {
+                closeAboutModal();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeAboutModal();
+            }
+        });
 
         window.onload = function() {
             detectChromeAI();
