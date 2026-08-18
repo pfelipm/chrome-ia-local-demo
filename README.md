@@ -122,7 +122,7 @@ Demostración de las APIs de alto nivel orientadas a tareas lingüísticas concr
 
 ### 3. Banco de pruebas y casos de uso
 
-![Captura de la pestaña de banco de pruebas y casos de uso](assets/presets-becnhmarks.png)
+![Captura de la pestaña de banco de pruebas y casos de uso](assets/presets-benchmarks.png)
 
 * **Plantillas preconfiguradas (*presets*):**
   * *Extractor de JSON:* Análisis de texto desestructurado para generar estructuras JSON válidas.
